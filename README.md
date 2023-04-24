@@ -1,4 +1,7 @@
-springVue
+SpringVue Front-end Back-end Decoupling
+ 
+ 为SpringBoot准备的前端项目,前后端分离已完成后端，现在需要前端工程化
+
 
 This template should help get you started developing with Vue 3 in Vite.
 
