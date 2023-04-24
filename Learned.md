@@ -63,3 +63,13 @@
 
 
   ```
+
+
+### Book Library
+
+1. book父组件页面布局
+   borrow list 和 book list为子组件
+2.动态组件 keep-alive 
+`keep-alive`的动态组件`component`很巧妙的绑定了`currentTab`,切换由点击事件的赋值操作`@click='currentTab="BookList"'`
+而实现自由切换两个子组件
+完整代码见 init_book_library分支
