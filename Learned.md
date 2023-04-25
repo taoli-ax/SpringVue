@@ -148,10 +148,49 @@
 - 还记得windows如何启动MongoDB吗？ 启动service里的服务
 - 还记得如何修改端口号吗，app.listen(3000,)这里修改
   
-axios get请求 用params
+axios get请求 用params 但后端要能接受才行
+```javascript
+   const response=await axios({
+                url:`/cups/pageNation1`,
+                method:'get',
+                params:{
+                  PageNum:1,
+                  PageSize:5
+                }
+            });
+         
+```
+发出的请求是 `localhost:3030/cups/pageNation1?PageNum=1&PageSize=5`
+
+```java
+    @GetMapping("/pageNation1/{PageNum}/{PageSize}")
+    public Result PageNation1(@PathVariable("PageNum") Integer PageNum,@PathVariable("PageSize") Integer PageSize){}
+```
+后端会报错，不支持Get或Post请求，这就是axios的不对了，具体看情况，有空再说，先睡了
+
+
 
 ES6 `axios().then(response=>{})`
 ES7 `const response=await axios()`
 
-axios跨域
-不用加rewrite()就访问成功了
+**配置axios跨域**
+- vite.config.js 不用加rewrite()就访问成功了
+  ```javascript
+    resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+   },
+   server: {
+      open: true,//启动项目自动弹出浏览器
+      port: 3030,//启动端口
+      proxy: {
+         '/cups': {
+         target: 'http://localhost:81',	//实际请求地址
+         changeOrigin: true,
+         
+         },
+      }
+   }
+  
+  ```
