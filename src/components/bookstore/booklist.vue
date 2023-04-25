@@ -20,7 +20,7 @@
                     <td>{{ data.publisher }}</td>
                     <td>
                         <span v-if="data.borrowed" >已借出</span>
-                        <button v-else>可借出</button>
+                        <button v-else @click="$emit('borrowBooks',data)">借阅</button>
                         
                     </td>
                 </tr>
@@ -29,7 +29,7 @@
     </div>
 </template>
 
-<script>
+<script >
 export default {
 data(){
     return{

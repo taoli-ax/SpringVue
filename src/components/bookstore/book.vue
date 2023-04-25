@@ -4,13 +4,13 @@
             <main >
                 <aside>
                     <ul>
-                        <li><a href="#" @click.prevent="currentTab='borrowList'">Book Shelf</a> </li>
-                        <li><a href="#" @click.prevent="currentTab='bookList'">Borrow/Return</a> </li>
+                        <li><a href="#" @click.prevent="currentTab='bookList'">Book Shelf</a> </li>
+                        <li><a href="#" @click.prevent="currentTab='borrowList'">Borrow/Return</a> </li>
                     </ul>
                 </aside>
                 <section>
                         <keep-alive>
-                            <component :is="currentTab"  :bookData="bookData" :borrowData="borrowData">
+                            <component :is="currentTab"  :bookData="bookData" :borrowData="borrowData" @borrowBooks="borrowBooks">
                             </component>
                         </keep-alive>
                 </section>
@@ -25,7 +25,7 @@ import borrowList from './borrowlist.vue';
 export default {
     data(){
         return{
-            currentTab:'bookList',
+            currentTab:'',
             bookData:[{
             _id:1,
             name:'hello world',
@@ -42,15 +42,16 @@ export default {
             publisher:'abc',
             borrowed:false
 
-        }],borrowData:[{
+        }],
+        borrowData:[{
             _id:1,
             bookId:3,
             name:"上帝",
             author:"djj",
             price:99,
             publisher:'ddf',
-            borrowed:true,
             back:true,
+            borrowed:false,
             status:1
         },{
             _id:2,
@@ -61,14 +62,29 @@ export default {
             publisher:'eed',
             borrowed:true,
             back:false,
-            status:0
-        }]
+            status:1
+        }],
+        borrowId:3
         }
     },
     components:{
         bookList,
         borrowList
     },
+    methods:{
+        borrowBooks(book){
+            // debugger
+            this.borrowData.push({
+                ...book,
+                bookId:book._id,
+                _id:this.borrowId++,
+                borrowed:true,
+                back:false,
+                status:1
+            });
+            book.borrowed=true;
+        }
+    }
 
 
 }
