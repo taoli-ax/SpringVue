@@ -65,7 +65,7 @@
   ```
 
 
-### Book Library
+### Branch:Book Library
 
 1. book父组件页面布局
    borrow list 和 book list为子组件
@@ -75,7 +75,7 @@
 完整代码见 init_book_library分支
 
 
-### BookLibrary-bookList
+### Branch:BookLibrary-bookList
 1. vue绑定样式 ，直接绑定一个对象到class属性，同时也是v-bind的用法
    ```javascript
    <tr :class='{myColor:true}'></tr>
@@ -95,3 +95,27 @@
       </tbody>
    
    ```
+
+
+
+### Branch:bookList_pass_variable_to_borrowList
+##### 手动实现需求效果，bookList 点击借阅，borrowList中添加一条对应的数据，同时，bookList更改状态为已借出
+
+- {...book} 继承并添加
+- {...book,back:false}添加属性
+- {...book,_id:this.borrow++}，模拟自增，如果book中也有_id,如果再在后面加上_id属性，则会覆盖之前的_id
+- {...book,bookId:book._id} 模拟外键效果，引用book的属性为新对象的属性
+  
+**难点：向上传递事件,子组件向父组件传值**
+- 以下的代码实现了父组件传方法到子组件以供子组件使用，子组件在执行@click时调用方法并传递参数item
+   ```javascript
+      <component @borrowBook="borrowBook"></component>
+
+      borrowBook(book){
+         this.borrowData.push({...book})
+      }
+   ```
+   ```javascript
+      <button @click="$emit('borrowBook',item)"></button>
+   ```
+- debugger放在代码中，然后浏览器在运行时会停在此处
