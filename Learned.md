@@ -125,3 +125,10 @@
 ### Branch: returnBook
 **子组件用$emit()向父组件提出需求**
 - {...borrow}如果想要删除属性，但是没有找到方法，其实可以用array.map()来循环和修改
+
+
+### deleteBorrowData
+删除借阅记录，修改status值
+- 老朋友filter(item=>{})
+- computed 计算属性，可以计算 props中的值
+- 如果status=0或1，那么filter(item=>item.status) ，表示返回item.status==1的值

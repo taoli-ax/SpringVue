@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="data in borrowData" :key="data._id" :class="{bgGrey:data.back}">
+                <tr v-for="data in filterData" :key="data._id" :class="{bgGrey:data.back}">
                     <td>{{ data.name }}</td>
                     <td>{{ data.author }}</td>
                     <td>{{ data.price }}</td>
@@ -23,7 +23,7 @@
                         <button v-else>未归还</button>
                     </td>
                     <td>
-                        <button v-if="data.back">delete</button>
+                        <button v-if="data.back" @click="$emit('deleteBorrowData',data._id)">delete</button>
                         <button v-else @click="$emit('returnBook',data)">归还</button>
                     </td>
                 </tr>
@@ -38,6 +38,11 @@ export default {
         borrowData:{
             type:Array,
             default:()=>[]
+        }
+    },
+    computed:{
+        filterData(){
+            return this.borrowData.filter(item=>item.status)
         }
     }
 }
