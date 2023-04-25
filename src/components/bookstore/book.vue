@@ -11,7 +11,8 @@
                 <section>
                         <keep-alive>
                             <component :is="currentTab"  :bookData="bookData" 
-                            :borrowData="borrowData" @borrowBooks="borrowBooks" @returnBook="returnBook">
+                            :borrowData="borrowData" @borrowBooks="borrowBooks" 
+                            @returnBook="returnBook" @deleteBorrowData="deleteBorrowData">
                             </component>
                         </keep-alive>
                 </section>
@@ -105,6 +106,25 @@ export default {
                 if(item._id==borrow.bookId){
                     item.borrowed=false;
                 }
+                return item;
+            })
+        },
+        // 我的方法
+        // deleteBorrowData(id){
+        //     this.borrowData=this.borrowData.filter(item=>{
+        //         if(item._id!=id){
+        //             return item;
+        //         }
+        //     })
+
+        // }
+        // 老师的讲解
+        deleteBorrowData(id){
+            this.borrowData=this.borrowData.map(item=>{
+                if(item._id==id){
+                    item.status=0;
+                }
+                
                 return item;
             })
         }
