@@ -132,3 +132,26 @@
 - 老朋友filter(item=>{})
 - computed 计算属性，可以计算 props中的值
 - 如果status=0或1，那么filter(item=>item.status) ，表示返回item.status==1的值
+
+
+啰嗦一下，css
+尽量别用scoped，有时候限制不住
+尽量用单独文件引入，id，class命名 限制使用范围
+
+
+
+---
+
+## 服务器与前端
+
+- 还记得如何启动express项目吗？ node ./app.js
+- 还记得windows如何启动MongoDB吗？ 启动service里的服务
+- 还记得如何修改端口号吗，app.listen(3000,)这里修改
+  
+axios get请求 用params
+
+ES6 `axios().then(response=>{})`
+ES7 `const response=await axios()`
+
+axios跨域
+不用加rewrite()就访问成功了
