@@ -46,6 +46,6 @@ props:{
 
 }
 </script>
-<style scoped>
+<style scoped >
 
 </style>

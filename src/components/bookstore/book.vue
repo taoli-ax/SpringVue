@@ -4,8 +4,8 @@
             <main >
                 <aside>
                     <ul>
-                        <li><a href="#" @click.prevent="currentTab='bookList'">Book Shelf</a> </li>
-                        <li><a href="#" @click.prevent="currentTab='borrowList'">Borrow/Return</a> </li>
+                        <li><a href="#" @click.prevent="currentTab='BookList'">Book Shelf</a> </li>
+                        <li><a href="#" @click.prevent="currentTab='BorrowList'">Borrow/Return</a> </li>
                     </ul>
                 </aside>
                 <section>
@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import bookList from './booklist.vue';
-import borrowList from './borrowlist.vue';
-export default {
+import BookList from './booklist.vue';
+import BorrowList from './borrowlist.vue';
+export default  {
     data(){
         return{
             currentTab:'',
@@ -84,8 +84,8 @@ export default {
         }
     },
     components:{
-        bookList,
-        borrowList
+        BookList,
+        BorrowList
     },
     methods:{
         borrowBooks(book){
@@ -133,7 +133,8 @@ export default {
 
 }
 </script>
-<style>
+<style lang="scss">
+
 main{
     display: flex;
     background-color: bisque;
