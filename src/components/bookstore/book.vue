@@ -10,7 +10,8 @@
                 </aside>
                 <section>
                         <keep-alive>
-                            <component :is="currentTab"  :bookData="bookData" :borrowData="borrowData" @borrowBooks="borrowBooks">
+                            <component :is="currentTab"  :bookData="bookData" 
+                            :borrowData="borrowData" @borrowBooks="borrowBooks" @returnBook="returnBook">
                             </component>
                         </keep-alive>
                 </section>
@@ -32,7 +33,7 @@ export default {
             author:'tx',
             price:99,
             publisher:'xxx.pou',
-            borrowed:true
+            borrowed:false
         },
         {
             _id:2,
@@ -41,8 +42,22 @@ export default {
             price:38,
             publisher:'abc',
             borrowed:false
-
-        }],
+        },{
+            _id:3,
+            name:"上帝",
+            author:"djj",
+            price:99,
+            publisher:'ddf',
+            borrowed:true,
+        },{
+            _id:4,
+            name:"安达曼人",
+            author:"33e",
+            price:99,
+            publisher:'eed',
+            borrowed:true,
+        }
+    ],
         borrowData:[{
             _id:1,
             bookId:3,
@@ -50,12 +65,12 @@ export default {
             author:"djj",
             price:99,
             publisher:'ddf',
-            back:true,
-            borrowed:false,
+            borrowed:true,
+            back:false,
             status:1
         },{
             _id:2,
-            bookId:2,
+            bookId:4,
             name:"安达曼人",
             author:"33e",
             price:99,
@@ -64,7 +79,7 @@ export default {
             back:false,
             status:1
         }],
-        borrowId:3
+        borrowId:2
         }
     },
     components:{
@@ -83,6 +98,15 @@ export default {
                 status:1
             });
             book.borrowed=true;
+        },
+        returnBook(borrow){
+            borrow.back=true;
+            this.bookData=this.bookData.map(item=>{
+                if(item._id==borrow.bookId){
+                    item.borrowed=false;
+                }
+                return item;
+            })
         }
     }
 

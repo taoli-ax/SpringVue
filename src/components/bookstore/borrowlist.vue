@@ -24,7 +24,7 @@
                     </td>
                     <td>
                         <button v-if="data.back">delete</button>
-                        <button v-else>归还</button>
+                        <button v-else @click="$emit('returnBook',data)">归还</button>
                     </td>
                 </tr>
             </tbody>

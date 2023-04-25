@@ -119,3 +119,9 @@
       <button @click="$emit('borrowBook',item)"></button>
    ```
 - debugger放在代码中，然后浏览器在运行时会停在此处
+
+
+
+### Branch: returnBook
+**子组件用$emit()向父组件提出需求**
+- {...borrow}如果想要删除属性，但是没有找到方法，其实可以用array.map()来循环和修改
