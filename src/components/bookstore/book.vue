@@ -52,6 +52,16 @@ export default {
             borrowed:true,
             back:true,
             status:1
+        },{
+            _id:2,
+            bookId:2,
+            name:"安达曼人",
+            author:"33e",
+            price:99,
+            publisher:'eed',
+            borrowed:true,
+            back:false,
+            status:0
         }]
         }
     },
@@ -87,5 +97,11 @@ aside{
 width: 200px;
 text-align: center;
 }
+th,td{
+    padding: 10px 30px;
 
+}
+.bgGrey{
+    background-color: grey;
+}
 </style>

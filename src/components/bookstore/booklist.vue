@@ -47,11 +47,5 @@ props:{
 }
 </script>
 <style scoped>
-th,td{
-    padding: 10px 30px;
 
-}
-.bgGrey{
-    background-color: grey;
-}
 </style>

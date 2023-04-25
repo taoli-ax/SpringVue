@@ -21,7 +21,10 @@
                     <td>
                         <span v-if="data.back" >已归还</span>
                         <button v-else>未归还</button>
-                        
+                    </td>
+                    <td>
+                        <button v-if="data.back">delete</button>
+                        <button v-else>归还</button>
                     </td>
                 </tr>
             </tbody>
@@ -41,11 +44,5 @@ export default {
 </script>
 
 <style scoped>
-th,td{
-    padding: 10px 30px;
 
-}
-.bgGrey{
-    background-color: grey;
-}
 </style>
