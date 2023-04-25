@@ -73,3 +73,25 @@
 `keep-alive`的动态组件`component`很巧妙的绑定了`currentTab`,切换由点击事件的赋值操作`@click='currentTab="BookList"'`
 而实现自由切换两个子组件
 完整代码见 init_book_library分支
+
+
+### BookLibrary-bookList
+1. vue绑定样式 ，直接绑定一个对象到class属性，同时也是v-bind的用法
+   ```javascript
+   <tr :class='{myColor:true}'></tr>
+
+   <style>
+      .myColor{
+         background-color:grey
+      }
+   </style>
+   ```
+2. 关于渲染，不是在上一级标签渲染下一级，而是在要被渲染的标签本身放入v-for
+   ```javascript
+      <tbody>
+         <tr v-for="data in bookData" id="data._id">
+            <td>{{data.name}}</td>
+         </tr>
+      </tbody>
+   
+   ```

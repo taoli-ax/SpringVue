@@ -10,7 +10,7 @@
                 </aside>
                 <section>
                         <keep-alive>
-                            <component :is="currentTab">
+                            <component :is="currentTab"  :bookData="bookData" :borrowData="borrowData">
                             </component>
                         </keep-alive>
                 </section>
@@ -26,7 +26,43 @@ export default {
     data(){
         return{
             currentTab:'bookList',
-           
+            bookData:[{
+            _id:1,
+            name:'hello world',
+            author:'tx',
+            price:99,
+            publisher:'xxx.pou',
+            borrowed:true
+        },
+        {
+            _id:2,
+            name:'vue practice',
+            author:'ijs',
+            price:38,
+            publisher:'abc',
+            borrowed:false
+
+        }],borrowData:[{
+            _id:1,
+            bookId:3,
+            name:"上帝",
+            author:"djj",
+            price:99,
+            publisher:'ddf',
+            borrowed:true,
+            back:true,
+            status:1
+        },{
+            _id:2,
+            bookId:2,
+            name:"安达曼人",
+            author:"33e",
+            price:99,
+            publisher:'eed',
+            borrowed:true,
+            back:false,
+            status:0
+        }]
         }
     },
     components:{
@@ -61,5 +97,11 @@ aside{
 width: 200px;
 text-align: center;
 }
+th,td{
+    padding: 10px 30px;
 
+}
+.bgGrey{
+    background-color: grey;
+}
 </style>
