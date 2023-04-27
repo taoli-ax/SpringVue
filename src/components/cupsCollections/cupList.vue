@@ -5,6 +5,7 @@
                 <th>id</th>
                 <th>name</th>
                 <th>brand</th>
+                <th>avatar</th>
             </tr>
         </thead>
         <tbody>
@@ -13,6 +14,7 @@
                 <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.brand }}</td>
+                <td><img :src="'http://localhost:81/img/avatar/'+item.avatar"></td>
             </tr>
         </tbody>
     </table>

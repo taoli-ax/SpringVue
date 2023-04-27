@@ -27,8 +27,7 @@ export default {
         async getCups(){
             const response=await axios({
                 url:`/cups/pageNation1/${this.page.PageNum}/${this.page.PageSize}`,
-                method:'get',
-                
+                method:'get'
             });
             this.cupListData=response.data.data.list;
             console.log(response);
