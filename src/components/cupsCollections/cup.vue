@@ -34,11 +34,14 @@ export default {
         },
         async deleteCup(id){
             console.log(id);
-            const n=await axios({
+            const {data}=await axios({
                 url:`/cups/${id}`,
                 method:"delete"
             });
-            console.log("delete rows:",n.data);
+            console.log("delete rows:",data);
+            if(data.success){
+                this.getCups();
+            }
         }
     }
 }
