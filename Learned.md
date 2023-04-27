@@ -194,3 +194,11 @@ ES7 `const response=await axios()`
    }
   
   ```
+
+
+
+## bug fix
+当 axios发送delete请求时，后端崩溃` Request method 'DELETE' not supported`
+前端代码是：`axios({url:'',method='post'})`
+原因：`cups/delete/${id}`,不符合后端定义 `/{id}`
+解决：请检查 Url是否匹配后端，尤其是RESTful风格的

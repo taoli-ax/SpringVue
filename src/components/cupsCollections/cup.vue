@@ -1,6 +1,6 @@
 <template>
     <p>cup</p>
-    <CupList :cupListData="cupListData"></CupList>
+    <CupList :cupListData="cupListData"  @deleteCup="deleteCup"></CupList>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
             page:
                 {
                 PageNum:1,
-                PageSize:5
+                PageSize:35
             },
             cupListData:[]
         }
@@ -30,7 +30,15 @@ export default {
                 method:'get'
             });
             this.cupListData=response.data.data.list;
-            console.log(response);
+            console.log("首页：",response);
+        },
+        async deleteCup(id){
+            console.log(id);
+            const n=await axios({
+                url:`/cups/${id}`,
+                method:"delete"
+            });
+            console.log("delete rows:",n.data);
         }
     }
 }
