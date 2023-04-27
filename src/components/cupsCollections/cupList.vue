@@ -14,6 +14,7 @@
                 <td>{{ item.id }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.brand }}</td>
+                <!-- 动态绑定头像 :src -->
                 <td><img :src="'http://localhost:81/img/avatar/'+item.avatar"></td>
             </tr>
         </tbody>
