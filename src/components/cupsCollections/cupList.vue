@@ -6,6 +6,7 @@
                 <th>name</th>
                 <th>brand</th>
                 <th>avatar</th>
+                <th>OP</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,8 @@
                 <td>{{ item.brand }}</td>
                 <!-- 动态绑定头像 :src -->
                 <td><img :src="'http://localhost:81/img/avatar/'+item.avatar"></td>
+                <td><button @click="$emit('deleteCup',item.id)">delete</button></td>
+   
             </tr>
         </tbody>
     </table>
