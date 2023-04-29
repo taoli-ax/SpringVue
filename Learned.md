@@ -195,7 +195,30 @@ ES7 `const response=await axios()`
   
   ```
 
+
 **脑子里少根弦，传值一定要$('')吗，v-model别忘了**
+
+=======
+---
+
+**技能点：**
+响应的结果自动获取 {data},不必再用`response.data`
+```javascript
+const {data}=axios({url:'...',method:'post'})
+console.log(data)// 1
+```
+
+**技能点：**
+删除请求之后，还有需要再刷新页面，这个需求怎么完成？
+师：请求完成并成功删除之后，再次发送`getCups()`
+学：妙！，我本以为要在后端delete接口添加代码。。。
+
+```javascript
+   const {data} = axios({url:'delete/id', method:'post'})
+   if(data.success){
+      this.getCups();
+   }
+```
 
 
 
