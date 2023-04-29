@@ -9,7 +9,8 @@
 export default {
     props:{
         cup:{
-            type:Object
+            type:Object,
+            default:()=>({})
         }
     }
 }
