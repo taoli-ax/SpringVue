@@ -1,14 +1,15 @@
 <template>
     <p>cup</p>
     <CreateCup @create="create" :cup="cup"></CreateCup>
-    <CupList :cupListData="cupListData"  @deleteCup="deleteCup"></CupList>
+    <CupObject :cupForUpdate="cupForUpdate" @getCups="getCups"></CupObject>
+    <CupList :cupListData="cupListData"  @deleteCup="deleteCup" @getUpdateCup="getUpdateCup"></CupList>
 </template>
 
 <script>
 import axios from 'axios';
 import CupList from './cupList.vue';
-import createCup from './createCup.vue';
 import CreateCup from './createCup.vue';
+import CupObject from './updateCup.vue';
 export default {
     data(){
         return{
@@ -21,12 +22,17 @@ export default {
             cup:{
                 name:"",
                 brand:""
+            },
+            cupForUpdate:{
+                name:"",
+                brand:""
             }
         }
     },
     components:{
     CupList,
-    CreateCup
+    CreateCup,
+    CupObject
 },
     mounted(){
         this.getCups();
@@ -60,8 +66,18 @@ export default {
                 this.getCups();
             }
             console.log(data);
+<<<<<<< Updated upstream
 
         }
+=======
+        },
+        getUpdateCup(Object){
+            console.log(Object);
+            this.cupForUpdate=Object;
+
+        },
+        
+>>>>>>> Stashed changes
     }
 }
 </script>

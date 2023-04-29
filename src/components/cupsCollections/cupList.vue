@@ -17,7 +17,10 @@
                 <td>{{ item.brand }}</td>
                 <!-- 动态绑定头像 :src -->
                 <td><img :src="'http://localhost:81/img/avatar/'+item.avatar"></td>
-                <td><button @click="$emit('deleteCup',item.id)">delete</button></td>
+                <td>
+                    <button @click="$emit('deleteCup',item.id)">delete</button>
+                    <button @click="$emit('getUpdateCup',item)">update</button>
+                </td>
    
             </tr>
         </tbody>

@@ -197,6 +197,7 @@ ES7 `const response=await axios()`
 
 
 **脑子里少根弦，传值一定要$('')吗，v-model别忘了**
+<<<<<<< Updated upstream
 
 =======
 ---
@@ -221,6 +222,31 @@ console.log(data)// 1
 ```
 
 
+=======
+- **技能点** v-model双向绑定时，同时修改了Props传递过来的值，怎么解耦？
+```javascript
+   props:['cupForUpdate'],
+   data(){
+      return{
+          cup:this.cupForUpdate
+      }
+   }
+```
+- **data只加载一次怎么办？用watch**
+```javascript
+   props:['cupForUpdate'],
+   data(){
+      return{
+         cup:{}
+      }
+   },
+   watch:{
+      cupForUpdate(val){
+         this.cup=val
+      }
+   }
+```
+>>>>>>> Stashed changes
 
 
 ## bug fix
