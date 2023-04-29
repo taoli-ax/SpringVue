@@ -1,11 +1,14 @@
 <template>
     <p>cup</p>
+    <CreateCup @create="create" :cup="cup"></CreateCup>
     <CupList :cupListData="cupListData"  @deleteCup="deleteCup"></CupList>
 </template>
 
 <script>
 import axios from 'axios';
 import CupList from './cupList.vue';
+import createCup from './createCup.vue';
+import CreateCup from './createCup.vue';
 export default {
     data(){
         return{
@@ -14,12 +17,17 @@ export default {
                 PageNum:1,
                 PageSize:35
             },
-            cupListData:[]
+            cupListData:[],
+            cup:{
+                name:"",
+                brand:""
+            }
         }
     },
     components:{
-        CupList
-    },
+    CupList,
+    CreateCup
+},
     mounted(){
         this.getCups();
     },
@@ -39,6 +47,18 @@ export default {
                 method:"delete"
             });
             console.log("delete rows:",n.data);
+        },
+        async create(){
+            console.log("像后端传递："+this.cup);
+            const {data}=await axios({
+                url: '/cups',
+                method: 'post',
+                data:this.cup
+            });
+            if(data.success){
+                this.getCups();
+            }
+            console.log(data);
         }
     }
 }

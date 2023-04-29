@@ -8,5 +8,4 @@
 export default {
   props:['count']
 }
-
 </script>

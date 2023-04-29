@@ -195,6 +195,9 @@ ES7 `const response=await axios()`
   
   ```
 
+**脑子里少根弦，传值一定要$('')吗，v-model别忘了**
+
+
 
 
 ## bug fix
