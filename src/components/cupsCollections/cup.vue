@@ -66,10 +66,8 @@ export default {
                 this.getCups();
             }
             console.log(data);
-<<<<<<< Updated upstream
 
         }
-=======
         },
         getUpdateCup(Object){
             console.log(Object);
@@ -77,7 +75,6 @@ export default {
 
         },
         
->>>>>>> Stashed changes
     }
-}
+
 </script>
