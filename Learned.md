@@ -197,9 +197,7 @@ ES7 `const response=await axios()`
 
 
 **脑子里少根弦，传值一定要$('')吗，v-model别忘了**
-<<<<<<< Updated upstream
 
-=======
 ---
 
 **技能点：**
@@ -246,7 +244,6 @@ console.log(data)// 1
       }
    }
 ```
->>>>>>> Stashed changes
 
 
 ## bug fix
