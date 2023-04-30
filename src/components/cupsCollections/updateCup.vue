@@ -1,9 +1,9 @@
 <template>
     <div>
         <label>cup name</label>
-        <input type="text" v-model="cup.name">
+        <input type="text" v-model="cupForUpdate.name">
         <label>cup brand</label>
-        <input type="text" v-model="cup.brand">
+        <input type="text" v-model="cupForUpdate.brand">
         <button @click="updateCup">update</button>
     </div>
 </template>
@@ -33,7 +33,7 @@ export default {
             const {data}=await axios({
                 url:'/cups',
                 method:'put',
-                data:this.cup
+                data:this.cupForUpdate
             });
             console.log("更新结果"+data);
             if(data.success){

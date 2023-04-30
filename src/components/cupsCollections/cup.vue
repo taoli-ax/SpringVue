@@ -67,14 +67,14 @@ export default {
             }
             console.log(data);
 
-        }
         },
         getUpdateCup(Object){
             console.log(Object);
             this.cupForUpdate=Object;
-
-        },
-        
+        }
     }
+    }            
+        
+    
 
 </script>
