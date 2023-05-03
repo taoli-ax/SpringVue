@@ -1,5 +1,6 @@
 <template>
     <p>cup</p>
+    <Search @searchByType="searchByType"></Search>
     <CreateCup @create="create" :cup="cup"></CreateCup>
     <CupObject :cupForUpdate="cupForUpdate" @getCups="getCups"></CupObject>
     <CupList :cupListData="cupListData"  @deleteCup="deleteCup" @getUpdateCup="getUpdateCup"></CupList>
@@ -10,6 +11,7 @@ import axios from 'axios';
 import CupList from './cupList.vue';
 import CreateCup from './createCup.vue';
 import CupObject from './updateCup.vue';
+import Search from './search.vue';
 export default {
     data(){
         return{
@@ -32,7 +34,8 @@ export default {
     components:{
     CupList,
     CreateCup,
-    CupObject
+    CupObject,
+    Search
 },
     mounted(){
         this.getCups();
@@ -71,6 +74,12 @@ export default {
         getUpdateCup(Object){
             console.log(Object);
             this.cupForUpdate=Object;
+        },
+        searchByType(searchData){
+            this.page={...this.page,searchData}
+            console.log("search data",searchData)
+            console.log(this.page)
+            //等待后端接口建设，后端PageNation接口需要加searchData对象
         }
     }
     }            
