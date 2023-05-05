@@ -1,6 +1,6 @@
 <template>
     <p>cup</p>
-    <Search @searchByType="searchByType"></Search>
+    <Search @searchByType="searchByType" ></Search>
     <CreateCup @create="create" :cup="cup"></CreateCup>
     <CupObject :cupForUpdate="cupForUpdate" @getCups="getCups"></CupObject>
     <CupList :cupListData="cupListData"  @deleteCup="deleteCup" @getUpdateCup="getUpdateCup"></CupList>
@@ -18,7 +18,7 @@ export default {
             page:
                 {
                 PageNum:1,
-                PageSize:35
+                PageSize:15
             },
             cupListData:[],
             cup:{
@@ -75,11 +75,21 @@ export default {
             console.log(Object);
             this.cupForUpdate=Object;
         },
-        searchByType(searchData){
-            this.page={...this.page,searchData}
-            console.log("search data",searchData)
-            console.log(this.page)
+        async searchByType(searchData){
+            console.log(searchData);
+            this.page={...this.page,searchData};
+            console.log("search data",searchData);
+            
             //等待后端接口建设，后端PageNation接口需要加searchData对象
+            const {data}=await axios({
+                url:`/cups/pageNation2/${this.page.PageNum}/${this.page.PageSize}?${searchData.type}=${searchData.value}`,
+                method:'post'
+            })
+            if(data.success){
+                console.log(data)
+                this.cupListData=data.data.list;
+            }
+            
         }
     }
     }            
