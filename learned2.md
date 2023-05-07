@@ -104,3 +104,39 @@ section作为正文
 ```
 
 **技巧：确保代码一致，否则会浪费时间**
+
+
+**技巧：hashHistory VS History**
+hash是纯前端，不会发送请求给后端
+历史模式，有时候会发送请求给后端
+
+
+**bug fix**
+vite.config.js中的跨域转发要写springBoot的路径
+例如 后端定义了
+```java
+@RequestMapping("/CoH2")
+```
+那么在vite.config.js中配置
+```javascript
+proxy:{
+    '/CoH2':{
+        target: 'http://localhost:81',	//实际请求地址
+        changeOrigin: true,
+      }
+}
+```
+
+**独立完成的经验**
+路由跳转页面：  
+方法一：`$router.push('/site/updateCamp')`  
+方法二：`<router-link :to="{path:'/site/updateCamp', query:item}">update</router-link>`
+
+目标页面引用：  
+`this.$route.query`  
+
+**注意**
+传递的如果是对象，query后面直接写item,不需要再`query:{item:item}`,会出现无法引用的情况
+
+如果需要传递路径参数
+可以在router.index.js中定义`path: /updateCamp/:id`,那么在组件中需要传递`params:{id:item.id}`
