@@ -1,7 +1,11 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory ,createWebHistory} from 'vue-router'
 import Login from '../views/login/login.vue'
 import Register from '../views/register/register.vue'
 const routes = [
+  {
+    path: '/',
+    redirect: '/site'
+  },
   {
     path: '/login',
     name: 'Login',
@@ -31,6 +35,11 @@ const routes = [
       {
         path:'newCamp',
         component:()=>import('../components/camp/newCamp.vue')
+      },
+      {
+        path: 'updateCamp',
+        name:'updateCamp',
+        component: ()=>import("../components/camp/updateCamp.vue")
       }
     ]
   },
@@ -38,7 +47,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

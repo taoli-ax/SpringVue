@@ -20,6 +20,10 @@ export default defineConfig({
         changeOrigin: true,
        
       },
+      '/CoH2':{
+        target: 'http://localhost:81',	//实际请求地址
+        changeOrigin: true,
+      }
     }
   }
 
