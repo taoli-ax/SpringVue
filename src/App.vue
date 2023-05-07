@@ -3,6 +3,11 @@
         <!-- <Counter2/> -->
         <!-- <book></book> -->
         <!-- <Cup></Cup> -->
+        <header class="color">Company Of Hero 2 Display</header>
+        <main>
+            <router-view></router-view>
+        </main>
+        <footer class="color">footer</footer>
     </div>
 </template>
 
@@ -21,3 +26,26 @@
 //     }
 // })
 </script>
+
+<style>
+header{
+    text-align: center;
+    font-size: 40px ;;
+}
+main{
+    display: flex;
+    flex-grow: 1;
+    
+}
+#app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.color{
+    background-color: gray;
+    height: 80px;
+    text-align: center;
+}
+</style>
