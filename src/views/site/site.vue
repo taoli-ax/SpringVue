@@ -21,7 +21,7 @@
 
                 <dl>
                     <dt>地图</dt>
-                    <dd>快速红球</dd>
+                    <dd><router-link to="/site/counter">Counter</router-link></dd>
                     <dd>库尔斯克会战</dd>
                 </dl>
             </aside>
