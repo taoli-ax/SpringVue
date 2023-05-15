@@ -1,27 +1,22 @@
 <template>
     <div>
-        <h2>Counter:{{ $store.state.counter }}</h2>
-        <button @click="$store.commit('increment')">+1</button>
-        <input type="text" v-model="this.count" />
+        <h2>Counter:{{ counter }}</h2>
+        <button @click="increment">+1</button>
+        <input type="text" v-model="counter" />
         <button @click="$store.commit('decrement')">-1</button>
     </div>
 </template>
 
 
 <script>
+import {mapState,mapMutations} from 'vuex';
 export default({
-    data(){
-        return {
-            count: this.$store.state.counter
-        }
+    computed:{
+        ...mapState(['counter','a','b'])
     },
     methods:{
-        increment(){
-            this.count++;
-        },
-        decrement(){
-            this.count--;
-        }
+       ...mapMutations(['increment','decrement']),
+    
     }
 });
 
