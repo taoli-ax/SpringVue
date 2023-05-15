@@ -140,3 +140,11 @@ proxy:{
 
 如果需要传递路径参数
 可以在router.index.js中定义`path: /updateCamp/:id`,那么在组件中需要传递`params:{id:item.id}`
+
+**概念**
+- 全局守卫
+- 路由守卫
+- 组件守卫
+
+守卫的意思就是半路拦截，搞点检查之类的事情，然后放行，java里更加直接了当叫interceptor拦截器
+

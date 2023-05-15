@@ -50,5 +50,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 })
+// 全局前置守卫
+router.beforeEach((to,from,next)=>{
+  if(to.path.includes('/site')){
+      if(true){
+        console.log('global guard')
+      }else{
 
+      }
+  }
+  next()
+
+})
 export default router
