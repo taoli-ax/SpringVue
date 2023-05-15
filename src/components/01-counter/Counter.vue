@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h2>Counter:{{ count }}</h2>
-        <button @click="increment">+1</button>
-        <input type="text" v-model.lazy="count" />
-        <button @click="decrement">-1</button>
+        <h2>Counter:{{ $store.state.counter }}</h2>
+        <button @click="$store.commit('increment')">+1</button>
+        <input type="text" v-model="this.count" />
+        <button @click="$store.commit('decrement')">-1</button>
     </div>
 </template>
 
@@ -12,7 +12,7 @@
 export default({
     data(){
         return {
-            count:0
+            count: this.$store.state.counter
         }
     },
     methods:{
