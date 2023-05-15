@@ -30,29 +30,34 @@
 
 <script>
 import axios from 'axios';
+import {mapActions,mapState} from 'vuex';
 export default {
     data(){
         return{
-            page:{
-                pageNum:1,
-                pageSize:20
-            },
-            campList:[]
+        //     page:{
+        //         pageNum:1,
+        //         pageSize:20
+        //     },
+        //     campList:[]
         }
+    },
+    computed:{
+        ...mapState(['campList'])
     },
     mounted(){
         this.getCoh2();
     },
     methods:{
-        async getCoh2(){
-            const {data}=await axios({
-                url:`/CoH2/${this.page.pageNum}/${this.page.pageSize}/`,
-                method:'get',
-            });
-            if(data.success){
-                this.campList=data.data.list
-            }
-        },
+        ...mapActions(['getCoh2']),
+        // async getCoh2(){
+        //     const {data}=await axios({
+        //         url:`/CoH2/${this.page.pageNum}/${this.page.pageSize}/`,
+        //         method:'get',
+        //     });
+        //     if(data.success){
+        //         this.campList=data.data.list
+        //     }
+        // },
         
         async deleteCamp(id){
             if(confirm(`are u sure delete ${id}?`)){
