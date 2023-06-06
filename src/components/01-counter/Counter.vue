@@ -2,9 +2,9 @@
     <div>
         <h2>Counter:{{ counter }}</h2>
         <h3>newCounter:{{ newCounter }}</h3>
-        <button @click="increment">+1</button>
+        <button class="add" @click="increment">+1</button>
         <input type="text" v-model="counter" />
-        <button @click="$store.commit('decrement')">-1</button>
+        <button class="minus" @click="$store.commit('decrement')">-1</button>
     </div>
 </template>
 
