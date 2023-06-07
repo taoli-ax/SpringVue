@@ -10,20 +10,24 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
-    
-    export default {
-        data(){
-            return{
-                coh2camp:{
-                    camp:'',
-                    commander_count:0
-                }
+import { createNamespacedHelpers } from 'vuex';
+
+
+const { mapActions }=createNamespacedHelpers("addcamp");
+// import {mapActions} from 'vuex';
+
+export default {
+    data(){
+        return{
+            coh2camp:{
+                camp:'',
+                commander_count:0
             }
-        },
-        methods:{
-            ...mapActions(['addOne']),
-            
         }
+    },
+    methods:{
+        ...mapActions(['addOne']),
+        
     }
+}
 </script>
