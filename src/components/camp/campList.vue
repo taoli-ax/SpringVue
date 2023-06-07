@@ -52,8 +52,13 @@
 
 <script>
 import axios from 'axios';
-import {mapActions,mapState,mapMutations} from 'vuex';
+import { createNamespacedHelpers } from 'vuex';
+// import {mapActions,mapState,mapMutations} from 'vuex'; //未模块化时候的操作
+
+const { mapActions,mapState,mapMutations }=createNamespacedHelpers("camp");
+
 export default {
+    
     data(){
         return{
         //     page:{
@@ -79,15 +84,6 @@ export default {
     methods:{
         ...mapMutations(['changeCurrentPage']),
         ...mapActions(['getCoh2','previous','next']),
-        // async getCoh2(){
-        //     const {data}=await axios({
-        //         url:`/CoH2/${this.page.pageNum}/${this.page.pageSize}/`,
-        //         method:'get',
-        //     });
-        //     if(data.success){
-        //         this.campList=data.data.list
-        //     }
-        // },
         
         async deleteCamp(id){
             if(confirm(`are u sure delete ${id}?`)){
