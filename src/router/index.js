@@ -27,6 +27,11 @@ const routes = [
     name:'site',
     props:true,
     component:()=>import('../views/site/site.vue'),
+    beforeEnter: (to, from) => {
+      // 独享守卫
+      console.log('before enter /site')
+      return true;
+    },
     children:[
       {
         path:'campList',
@@ -67,5 +72,12 @@ router.beforeEach((to,from,next)=>{
   }
   next()
 
+})
+// 全局前置进入守卫
+router.beforeEach((to, from) => {
+  
+  // 返回 false 以取消导航
+  console.log('Did you login ?');
+  return true;
 })
 export default router
