@@ -23,6 +23,10 @@ export default defineConfig({
       '/CoH2':{
         target: 'http://localhost:81',	//实际请求地址
         changeOrigin: true,
+      },
+      '/germanCommander':{
+        target: 'http://localhost:81',	//实际请求地址
+        changeOrigin: true,
       }
     }
   }

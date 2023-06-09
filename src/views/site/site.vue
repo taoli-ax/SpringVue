@@ -1,40 +1,56 @@
+
 <template>
-    <div>
-        <h1></h1>
-        <div>
-            <p>welcome, {{name}}</p>
-        </div>
-        <div id="content">
-            <aside>
-                <dl>
-                    <dt>阵营</dt>
-                    
-                    <dd><router-link active-class="active" to="/site/campList">阵营列表</router-link></dd>
-                    <dd><router-link active-class="active" to="/site/newCamp">新增阵营</router-link></dd>
-                </dl>
+    <div class="common-layout">
+        <el-container class="big-container">
+            <el-header>Header</el-header>
 
-                <dl>
-                    <dt>指挥官</dt>
-                    <dd>防御学说</dd>
-                    <dd>装甲突击学说</dd>
-                </dl>
-
-                <dl>
-                    <dt>地图</dt>
-                    <dd><router-link to="/site/counter">Counter</router-link></dd>
-                    <dd>库尔斯克会战</dd>
-                  
-                </dl>
-            </aside>
-            <section>
-                <router-view></router-view>
-            </section>
-        </div>
-        
+            <el-container>
+                <el-aside>
+                    <sitebar></sitebar>
+                </el-aside>
+                <el-main>
+                    <router-view></router-view>
+                </el-main>
+            </el-container>
+                
+            <el-footer>Footer</el-footer>
+        </el-container>
     </div>
 </template>
-
 <script>
+import sitebar from '../site/sideBar.vue';
+export default {
+    components:{
+        sitebar
+    }
+}
+
+
+</script>
+<style>
+    .big-container{
+    /* display: inline-flex; */
+    /* direction:vertical; */
+    height: 100vh;
+    text-align: center;
+    }
+    .el-main{
+    line-height: 160px;
+    background-color: lightcyan;
+    }
+    .el-header , .el-footer{
+    line-height: 80px;
+    background-color: lightskyblue;
+    color: bisque;
+    }
+
+    .el-aside{
+    line-height: 200px;
+    background-color: lightblue;
+    }
+</style>
+
+<!-- <script>
 export default {
     // data(){
     //     return{
@@ -57,4 +73,4 @@ export default {
     background-color: pink;
     font-weight: bold;
 }
-</style>
+</style> -->

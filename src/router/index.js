@@ -50,6 +50,16 @@ const routes = [
         path: 'counter',
         name: 'counter',
         component: ()=>import("../components/01-counter/Counter.vue")
+      },
+      {
+        path:'germany',
+        name:'germany',
+        component:()=>import("../components/camp/germany.vue")
+      },
+      {
+        path:'newGermanCommander',
+        name:'newGermanCommander',
+        component:()=>import("../components/camp/newGermanCommander.vue")
       }
     ]
   },

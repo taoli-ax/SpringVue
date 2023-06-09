@@ -1,8 +1,9 @@
 import campApi from './modules/camp';
-
+import germanCamp from './modules/germanCamp';
 
 const apis={
-    campApi
+    campApi,
+    germanCamp
 }
 
 

@@ -1,9 +1,3 @@
 <template>
-    <div>
-        <h1>login</h1>
-        <router-link to="/register">sign up</router-link>
-    </div>
+    <router-link to="/register">sign up</router-link>
 </template>
-
-<script>
-</script>

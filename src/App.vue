@@ -3,11 +3,11 @@
         <!-- <Counter2/> -->
         <!-- <book></book> -->
         <!-- <Cup></Cup> -->
-        <header class="color">Company Of Hero 2 Display</header>
-        <main>
+        <!-- <header class="color">Company Of Hero 2 Display</header> -->
+        <!-- <main> -->
             <router-view></router-view>
-        </main>
-        <footer class="color">footer</footer>
+        <!-- </main> -->
+        <!-- <footer class="color">footer</footer> -->
     </div>
 </template>
 
@@ -28,7 +28,11 @@
 </script>
 
 <style>
-header{
+* {
+  padding: 0;
+  margin: 0;
+}
+/* header{
     text-align: center;
     font-size: 40px ;;
 }
@@ -47,5 +51,5 @@ main{
     background-color: gray;
     height: 80px;
     text-align: center;
-}
+} */
 </style>
