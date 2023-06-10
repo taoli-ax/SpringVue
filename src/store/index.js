@@ -5,6 +5,7 @@ import germany from './modules/germany';
 import american from './modules/american';
 import british from './modules/british';
 import soviet from './modules/soviet';
+import updateGerman from './modules/updateGerman';
 import newGermanCommander from './modules/newGermanCommander';
 export default createStore({
   // 可替代computed属性
@@ -16,6 +17,7 @@ export default createStore({
     american,
     british,
     soviet,
+    updateGerman,
     newGermanCommander
   }
 })

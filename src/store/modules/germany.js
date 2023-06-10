@@ -1,13 +1,33 @@
+
 import apis from "../../http/apis/apis";
 
 export default{
     namespaced:true,
     state:{
-        commanders_list:[]
+        commanders_list:[],
+        pageNation:{
+            pageNum:1,
+            pageSize:3,
+            pages:0,
+            total:0,
+            hasPrevious:false,
+            hasNextPage:true
+        
+          },
     },
     mutations:{
-        responseData(state,respData){
-            state.commanders_list=respData;
+        responseData(state,resp){
+            
+            state.commanders_list=resp.list;
+            state.pageNation.pages=resp.pages;
+            state.pageNation.total=resp.total;
+            state.pageNation.pageSize=resp.pageSize;
+            state.pageNation.hasPrevious=resp.hasPreviousPage;
+            state.pageNation.hasPrevious=resp.hasNextPage;
+        },
+        changeCurrent(state,val){
+            console.log(val)
+            state.pageNation.pageNum=val
         }
     },
     actions:{
@@ -18,6 +38,9 @@ export default{
                 context.commit('responseData',data.data)
             }
            
+        },
+        async updateCommander(context){
+                
         }
     }
 }

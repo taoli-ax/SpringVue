@@ -21,7 +21,7 @@ export default {
         responseData(state,resp){
           state.campList=resp.list;
           state.pageNation.pages=resp.pages
-          state.pageNation.pages=resp.pageSize
+          state.pageNation.pageSize=resp.pageSize
           state.pageNation.hasPrevious=resp.hasPreviousPage
           state.pageNation.hasPrevious=resp.hasNextPage
         },
@@ -29,6 +29,7 @@ export default {
           state.pageNation.pageSize=size
         },
         changeCurrentPage(state,page){
+          console.log(page);
           if(page==0){
             return
           };
