@@ -6,37 +6,23 @@
             <el-table-column prop="description" label="description" width="580px" />
             <el-table-column prop="image" label="image"></el-table-column>
             <el-table-column fixed="right" label="Operations" width="120">
-                <template #default>
-                    <el-button link type="primary" size="small" @click="">Detail</el-button>
-                    <el-button link type="primary" size="small">Edit</el-button>
+                <template #default="scope">
+                    <router-link :to="{path:'/site/updateGerman',query: scope.row }">
+                        <el-button size="small" >Edit</el-button>
+                    </router-link>
                 </template>
             </el-table-column>
         </el-table>
-       
-   
-        <!-- <div>
-            当前第{{ pageNation.pageNum }}页， 共{{ pageNation.pages }}页
-        </div>
-        <div>
-            
-            <select name="" id="" v-model="pageNation">
-                <caption>选择每页条数</caption>
-                <option value="">2</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-            </select>
-       
-    
-            
-        </div>
-        <div>
-            <button @click="changeCurrentPage(1)">index page</button>
-            <button @click="changeCurrentPage(pageNation.pageNum-1)">previous</button>
-
-            <button @click="changeCurrentPage(pageNation.pageNum+1)">next</button>
-            <button @click="changeCurrentPage(pageNation.pages)">end page</button>
-        </div> -->
-    </div>
+        <el-pagination
+      v-model:current-page="pageNation.pageNum"
+      v-model:page-size="pageNation.pageSize"
+      :page-sizes="[3, 5, 10, 15]"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="pageNation.total"
+      @size-change=""
+      @current-change="changeCurrent"
+    />
+    </div> 
 
 </template>
 <script>
@@ -44,10 +30,15 @@
     const {mapState,mapMutations,mapActions}=createNamespacedHelpers('germany');
     export default{
         computed:{
-            ...mapState(['commanders_list'])
+            ...mapState(['commanders_list','pageNation'])
+        },
+        watch:{
+            'pageNation.pageNum'(){
+                this.getGermanCommanders();
+        },
         },
         methods:{
-            ...mapMutations(['responseData']),
+            ...mapMutations(['responseData','changeCurrent']),
             ...mapActions(['getGermanCommanders'])
         },
         mounted(){

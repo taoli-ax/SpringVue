@@ -47,6 +47,11 @@ const routes = [
         component: ()=>import("../components/camp/updateCamp.vue")
       },
       {
+        path: 'updateGerman',
+        name:'updateGerman',
+        component: ()=>import("../components/camp/updateGerman.vue")
+      },
+      {
         path: 'counter',
         name: 'counter',
         component: ()=>import("../components/01-counter/Counter.vue")
