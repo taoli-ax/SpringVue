@@ -57,6 +57,21 @@ const routes = [
         component:()=>import("../components/camp/germany.vue")
       },
       {
+       path:'american',
+       name:'american',
+       component:()=>import("../components/camp/american.vue")
+      },
+      {
+        path:'british',
+        name:'british',
+        component:()=>import("../components/camp/british.vue")
+       },
+       {
+        path:'soviet',
+        name:'soviet',
+        component:()=>import("../components/camp/soviet.vue")
+       },
+      {
         path:'newGermanCommander',
         name:'newGermanCommander',
         component:()=>import("../components/camp/newGermanCommander.vue")

@@ -19,3 +19,30 @@ CREATE TABLE IF Not exists German(
     on delete CASCADE
 ) COMMENT '德军';
 
+CREATE TABLE IF Not exists British(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    name VARCHAR(255),
+    description VARCHAR(255),
+    image VARCHAR(255),
+    camp_id int NOT NULL, 
+    Foreign Key (camp_id) REFERENCES coh2camp(id)
+    on delete CASCADE
+) COMMENT '英军';
+CREATE TABLE IF Not exists American(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    name VARCHAR(255),
+    description VARCHAR(255),
+    image VARCHAR(255),
+    camp_id int NOT NULL, 
+    Foreign Key (camp_id) REFERENCES coh2camp(id)
+    on delete CASCADE
+) COMMENT '美军';
+CREATE TABLE IF Not exists Soviet(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    name VARCHAR(255),
+    description VARCHAR(255),
+    image VARCHAR(255),
+    camp_id int NOT NULL, 
+    Foreign Key (camp_id) REFERENCES coh2camp(id)
+    on delete CASCADE
+) COMMENT '苏军';

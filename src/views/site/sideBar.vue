@@ -17,15 +17,15 @@
             <el-icon><User /></el-icon>
             <span>指挥官</span>
           </template>
-          <el-menu-item index="/1-1">美军</el-menu-item>
-          <el-menu-item index="1-2">英军</el-menu-item>
+          <el-menu-item index="/site/american">美军</el-menu-item>
+          <el-menu-item index="/site/british">英军</el-menu-item>
           <el-sub-menu index="1-3">
             <template #title>德军</template>
             <el-menu-item index="/site/germany">东线德军</el-menu-item>
             <el-menu-item index="1-3-2">西线德军</el-menu-item>
             <el-menu-item index="/site/newGermanCommander">新增指挥官</el-menu-item>
           </el-sub-menu>
-          <el-menu-item index="1-4">苏联</el-menu-item>
+          <el-menu-item index="/site/soviet">苏联</el-menu-item>
           <el-menu-item index="/site/newCamp">新增阵营</el-menu-item>
         </el-sub-menu>
 
