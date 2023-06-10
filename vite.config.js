@@ -39,7 +39,12 @@ export default defineConfig({
       '/sovietCommander':{
         target:'http://localhost:81',
         changeOrigin:true,
-      }
+      },
+      '/User':{
+        target:'http://localhost:81',
+        changeOrigin:true,
+      },
+      
     }
   },
   script:{

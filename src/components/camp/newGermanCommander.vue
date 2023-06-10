@@ -7,29 +7,18 @@
             <el-input v-model="commander.description" placeholder="how many"></el-input>
         </el-form-item>
         <el-form-item label="头像">
-            <el-upload
-                v-model=commander.image
-                class="upload-demo"
-                action="#"
-                :on-success="handleSuccess"
-            >
-                <el-button type="primary">Click to upload</el-button>
-           
-            </el-upload>
+            <el-input v-model="commander.image" placeholder="image address"></el-input>
         </el-form-item>
            
 
         <el-form-item>
-            <el-button type="primary" @click="">add</el-button>
+            <el-button type="primary" @click="addGermanCommander">add</el-button>
         </el-form-item>
     </el-form>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
-
-
-const { mapActions }=createNamespacedHelpers("newGermanCommander");
+import axios from 'axios';
 
 export default{
     data(){
@@ -37,14 +26,22 @@ export default{
             commander:{
                 name:'',
                 description:'',
-                image:''
+                image:'',
+                camp_id:1
             }
 
         }
     },
     methods:{
-        handleSuccess(response,uploadFile,uploadFiles){
-            console.log(response)
+        async addGermanCommander(){
+            const {data}=await axios({
+                url:'/germanCommander/add',
+                method:'post',
+                data:this.commander
+            });
+            if(data.success){
+                this.$router.push('/site/germany')
+            }
         }
     }
 }
