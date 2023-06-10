@@ -27,8 +27,24 @@ export default defineConfig({
       '/germanCommander':{
         target: 'http://localhost:81',	//实际请求地址
         changeOrigin: true,
+      },
+      '/americanCommander':{
+        target:'http://localhost:81',
+        changeOrigin:true,
+      },
+      '/britishCommander':{
+        target:'http://localhost:81',
+        changeOrigin:true,
+      },
+      '/sovietCommander':{
+        target:'http://localhost:81',
+        changeOrigin:true,
       }
     }
+  },
+  script:{
+    build:'vite build',
+    preview:'vite preview'
   }
 
 
